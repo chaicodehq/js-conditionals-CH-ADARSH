@@ -23,29 +23,29 @@
  * @returns {number} The ticket price, or -1 for invalid input
  */
 export function getTicketPrice(age, isWeekend) {
-  let total_price = 0;
+  let price = 0;
 
   if (typeof age !== "number" || age < 0) {
     return -1;
   }
 
   if (isWeekend) {
-    total_price += 3;
+    price += 3;
   }
 
   if (age <= 12) {
-    total_price += 8;
+    price += 8;
   }
   else if (age >= 13 && age <= 17) {
-    total_price += 12;
+    price += 12;
   }
   else if (age >= 18 && age <= 59) {
-    total_price += 15;
+    price += 15;
   }
   else {
-    total_price += 10;
+    price += 10;
   }
 
-  return total_price;
+  return price;
 }
 

@@ -16,6 +16,7 @@
  *   - "cappuccino" → +$1.50
  *   - "mocha"      → +$2.00
  *
+ * 
  * Optional extras:
  *   - whippedCream → +$0.50 (if true)
  *   - extraShot    → +$0.75 (if true)
@@ -31,5 +32,45 @@
  * @returns {number} Total price or -1 for invalid input
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
-  // Your code here
+  var total_price = 0
+  if (size === "small") {
+    total_price += 3.00
+  }
+  else if (size === "medium") {
+    total_price += 4.00
+  }
+  else if (size === "large") {
+    total_price += 5.00
+  }
+  else {
+    return -1
+  }
+
+  if (type === "regular") {
+    total_price = total_price
+  }
+  else if (type === "latte") {
+    total_price = total_price + 1.00
+  }
+  else if (type === "cappuccino") {
+    total_price = total_price + 1.50
+  }
+  else if (type === "mocha") {
+    total_price = total_price + 2.00
+  }
+  else {
+    return -1
+  }
+
+  if (extras.whippedCream) {
+    total_price = total_price + 0.50
+  }
+  if (extras.extraShot) {
+    total_price = total_price + 0.75
+  }
+
+
+  return Number(total_price.toFixed(2))
+
 }
+
